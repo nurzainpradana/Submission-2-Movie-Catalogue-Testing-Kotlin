@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting">
+    package="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting">
 
     <application
         android:allowBackup="true"
@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.detailtvshow.DetailTvShowActivity"></activity>
-        <activity android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.detailmovie.DetailMovieActivity" />
+        <activity android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailtvshow.DetailTvShowActivity"></activity>
+        <activity android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailmovie.DetailMovieActivity" />
         <activity
-            android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.home.HomeActivity"
+            android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.home.HomeActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

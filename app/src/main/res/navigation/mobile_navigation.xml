@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_movies"
-        android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.movie.MoviesFragment"
+        android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie.MoviesFragment"
         android:label="@string/title_movies"
         tools:layout="@layout/fragment_movies" >
         <action
@@ -22,13 +22,13 @@
 
     <fragment
         android:id="@+id/navigation_tvshow"
-        android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.tvshow.TvShowFragment"
+        android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.tvshow.TvShowFragment"
         android:label="@string/title_tvshow"
         tools:layout="@layout/fragment_tv_show" />
 
     <activity
         android:id="@+id/detailMovieAct"
-        android:name="com.nurzainpradana.androidfundamental.submission1moviecataloguetesting.ui.detailmovie.DetailMovieActivity"
+        android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailmovie.DetailMovieActivity"
         android:label="activity_detail_movie"
         tools:layout="@layout/activity_detail_movie"/>
 

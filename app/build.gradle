@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.nurzainpradana.androidfundamental.submission1moviecataloguetesting"
+        applicationId "com.nurzainpradana.androidfundamental.submission2moviecataloguetesting"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -85,6 +85,11 @@ dependencies {
 
     // View Pager
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 }
 repositories {
     mavenCentral()
