@@ -51,4 +51,42 @@ class CatalogueRepository private constructor(private val localDataSource: Local
         }
         return tvShowList
     }
+
+    override fun getDetailTvShow(tvShowId: Int): TvShow? {
+        val tvShows = localDataSource.getListTvShows()
+        var tvShow: TvShow? = null
+
+        for (tv in tvShows) {
+            if (tv.tvShowId == tvShowId) {
+                tvShow = TvShow(
+                        tvShowId = tv.tvShowId,
+                        tvShowYear = tv.tvShowYear,
+                        tvShowTitle = tv.tvShowTitle,
+                        tvShowPoster = tv.tvShowPoster,
+                        tvShowGenre = tv.tvShowGenre,
+                        tvShowDescription = tv.tvShowDescription
+                )
+            }
+        }
+        return tvShow
+    }
+
+    override fun getDetailMovie(movieId: Int): Movie? {
+        val movies = localDataSource.getListMovies()
+        var movie: Movie? = null
+
+        for (mv in movies) {
+            if (mv.movieId == movieId) {
+                movie = Movie(
+                        movieId = mv.movieId,
+                        movieTitle = mv.movieTitle,
+                        movieDescription = mv.movieDescription,
+                        movieGenre = mv.movieGenre,
+                        moviePoster = mv.moviePoster,
+                        movieYear = mv.movieYear
+                )
+            }
+        }
+        return movie
+    }
 }

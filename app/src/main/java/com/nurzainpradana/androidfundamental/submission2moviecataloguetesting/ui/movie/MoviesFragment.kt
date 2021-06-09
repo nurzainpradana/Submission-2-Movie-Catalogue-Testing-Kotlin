@@ -1,5 +1,6 @@
 package com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.data.source.local.entity.Movie
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.databinding.FragmentMoviesBinding
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailmovie.DetailMovieActivity
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie.adapter.CardViewMovieAdapter
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie.viewmodel.MovieViewModel
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.viewmodel.ViewModelFactory
 import java.util.*
 
 class MoviesFragment : Fragment() {
@@ -26,7 +30,8 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val movieViewModel = ViewModelProvider(this, NewInstanceFactory()).get(MovieViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        val movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
         val movies = movieViewModel.getListMovie()
         showRecyclerCardView(movies)
     }

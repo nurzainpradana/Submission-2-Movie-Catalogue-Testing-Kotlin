@@ -8,4 +8,8 @@ interface CatalogueDataSource {
     fun getListMovies(): List<Movie>
 
     fun getListTvShow(): List<TvShow>
+
+    fun getDetailTvShow(tvShowId: Int): TvShow?
+
+    fun getDetailMovie(movieId: Int): Movie?
 }

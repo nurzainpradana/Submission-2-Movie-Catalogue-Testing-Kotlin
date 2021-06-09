@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.data.source.local.entity.TvShow
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.databinding.FragmentTvShowBinding
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailtvshow.DetailTvShowActivity
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailtvshow.DetailTvShowViewModel
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.tvshow.adapter.CardViewTvShowAdapter
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.tvshow.viewmodel.TvShowViewModel
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment() {
 
@@ -29,7 +31,8 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tvShowViewModel = ViewModelProvider(this, NewInstanceFactory()).get(TvShowViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        val tvShowViewModel = ViewModelProvider(this, factory) [TvShowViewModel::class.java]
         val tvShows = tvShowViewModel.getListTvShow()
 
         showRecyclerCardView(tvShows)

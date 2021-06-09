@@ -3,12 +3,12 @@ package com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.u
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.R
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.data.source.local.entity.TvShow
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.databinding.ActivityDetailTvShowBinding
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.viewmodel.ViewModelFactory
 import jp.wasabeef.glide.transformations.BlurTransformation
 
 class DetailTvShowActivity : AppCompatActivity() {
@@ -21,32 +21,34 @@ class DetailTvShowActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val tvShowId = intent.getIntExtra(EXTRA_TV_SHOW, 0)
-        val detailTvShowViewModel = ViewModelProvider(this, NewInstanceFactory()).get(DetailTvShowViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(this)
+        val detailTvShowViewModel = ViewModelProvider(this, factory)[DetailTvShowViewModel::class.java]
 
-        detailTvShowViewModel.setTvShowId(tvShowId)
-        detailTvShowViewModel.getTvShow()?.let { setView(it) }
+        detailTvShowViewModel.getTvShow(tvShowId)?.let { setView(it) }
     }
 
-    private fun setView(tvShow: TvShow) {
-        with(binding) {
-            tvDetailTvShowTitle.text = tvShow.tvShowTitle
-            tvDetailTvShowDescription.text = tvShow.tvShowDescription
-            tvDetailTvShowGenre.text = tvShow.tvShowGenre
-            tvDetailTvShowYear.text = tvShow.tvShowYear
+    private fun setView(tvShow: TvShow?) {
+        if (tvShow != null) {
+            with(binding) {
+                tvDetailTvShowTitle.text = tvShow.tvShowTitle
+                tvDetailTvShowDescription.text = tvShow.tvShowDescription
+                tvDetailTvShowGenre.text = tvShow.tvShowGenre
+                tvDetailTvShowYear.text = tvShow.tvShowYear
 
-            Glide.with(applicationContext)
-                    .load(tvShow.tvShowPoster)
-                    .apply(RequestOptions().override(150, 150))
-                    .into(imgDetailTvShowPoster)
+                Glide.with(applicationContext)
+                        .load(tvShow.tvShowPoster)
+                        .apply(RequestOptions().override(150, 150))
+                        .into(imgDetailTvShowPoster)
 
-            Glide.with(applicationContext)
-                    .load(tvShow.tvShowPoster)
-                    .apply(RequestOptions.bitmapTransform(BlurTransformation(25)))
-                    .into(imgDetailTvShowPosterBlur)
+                Glide.with(applicationContext)
+                        .load(tvShow.tvShowPoster)
+                        .apply(RequestOptions.bitmapTransform(BlurTransformation(25)))
+                        .into(imgDetailTvShowPosterBlur)
 
-            val actionBar = supportActionBar
-            if (actionBar != null) {
-                actionBar.title = getString(R.string.tvshow) + " : " + tvShow.tvShowTitle
+                val actionBar = supportActionBar
+                if (actionBar != null) {
+                    actionBar.title = getString(R.string.tvshow) + " : " + tvShow.tvShowTitle
+                }
             }
         }
     }
