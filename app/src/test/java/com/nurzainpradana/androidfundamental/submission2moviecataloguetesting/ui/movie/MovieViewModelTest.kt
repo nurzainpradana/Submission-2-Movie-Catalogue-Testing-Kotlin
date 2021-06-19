@@ -1,14 +1,28 @@
 package com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie
 
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.data.source.CatalogueRepository
+import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.data.source.local.entity.Movie
 import com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.movie.viewmodel.MovieViewModel
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class MovieViewModelTest {
     private var movieViewModel: MovieViewModel? = null
+
+
+    @Mock
+    private lateinit var catalogueRepository: CatalogueRepository
+
+
+
     @Before
     fun init() {
+
         movieViewModel = MovieViewModel()
     }
 

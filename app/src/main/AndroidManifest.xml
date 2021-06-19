@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailtvshow.DetailTvShowActivity"></activity>
+        <activity android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailtvshow.DetailTvShowActivity" />
         <activity android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.detailmovie.DetailMovieActivity" />
         <activity
             android:name="com.nurzainpradana.androidfundamental.submission2moviecataloguetesting.ui.home.HomeActivity"
